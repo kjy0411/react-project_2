@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {Fragment} from "react";
+import {BrowserRouter as Router,Routes,Route} from "react-router";
+import Header from "./components/main/header";
+import Home from "./components/main/home";
+import InfoList from "./components/busan/infoList";
+import InfoFind from "./components/busan/infoFind";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <Fragment>
+        <Router>
+          <Header/>
+          <Routes>
+            {/* 실행 화면을 지정 */}
+            <Route path="/" element={<Home/>}/>
+            <Route path="/busan/info_list" element={<InfoList/>}/>
+            <Route path="/busan/info_find" element={<InfoFind/>}/>
+          </Routes>
+        </Router>
+      </Fragment>
+  )
 }
 
 export default App;
